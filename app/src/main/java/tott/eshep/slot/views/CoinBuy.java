@@ -7,10 +7,6 @@ import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.transitions.CCFadeTransition;
 
-import android.content.Intent;
-import android.net.Uri;
-
-import com.google.ads.InterstitialAd;
 
 import tott.eshep.slot.buttons.FitButtons;
 
@@ -21,9 +17,6 @@ public class CoinBuy extends CCLayer {
 	public int coinCount = 0;
 	
 	private static long lastTime = 0;
-
-	// Admob
-	private InterstitialAd interstitial;
 
 
 	public static CCScene scene() {

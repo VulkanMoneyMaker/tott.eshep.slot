@@ -51,6 +51,8 @@ public class ImageScreen extends Activity {
                             openGameScreen();
                         }
                     }
+                }  else {
+                    openGameScreen();
                 }
             }
 

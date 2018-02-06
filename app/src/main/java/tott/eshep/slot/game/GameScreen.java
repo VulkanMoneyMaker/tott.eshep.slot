@@ -16,28 +16,17 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager.LayoutParams;
-import android.widget.LinearLayout;
 
-import com.google.ads.Ad;
-import com.google.ads.AdListener;
-import com.google.ads.AdRequest;
-import com.google.ads.AdRequest.ErrorCode;
-import com.google.ads.AdSize;
-import com.google.ads.AdView;
-import com.google.ads.InterstitialAd;
 import tott.eshep.slot.views.LogoLayer;
 import tott.eshep.slot.views.TitleLayer;
 import tott.eshep.slot.buttons.WinService;
-import tott.eshep.slot.R;
-import tott.eshep.slot.entity.EntityActions;
+
 import tott.eshep.slot.entity.EntityRandom;
-import com.vungle.sdk.VunglePub;
-import com.vungle.sdk.VunglePub.EventListener;
 
 
-public class GameScreen extends Activity implements AdListener, EventListener{
-	private CCGLSurfaceView mGLSurfaceView;	
-	private InterstitialAd interstitialAd;
+
+public class GameScreen extends Activity {
+	private CCGLSurfaceView mGLSurfaceView;
 	private boolean startState ;
 
 	//@Override 
@@ -141,7 +130,6 @@ public class GameScreen extends Activity implements AdListener, EventListener{
 	}	
 	@Override public void onPause() {
 	      super.onPause();
-	      VunglePub.onPause();
 	      CCDirector.sharedDirector().pause();
 	      Resouces.pauseSound();
 	        
@@ -150,7 +138,6 @@ public class GameScreen extends Activity implements AdListener, EventListener{
 	 @Override public void onResume() {
 	     super.onResume();
 	     CCDirector.sharedDirector().resume();
-	     VunglePub.onResume();
 	     Resouces.resumeSound();
 	     review();
 	  }
@@ -187,59 +174,7 @@ public class GameScreen extends Activity implements AdListener, EventListener{
 		return layoutParams;
 	}
 
-	@Override
-	public void onDismissScreen(Ad arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void onFailedToReceiveAd(Ad arg0, ErrorCode arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onLeaveApplication(Ad arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onPresentScreen(Ad arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onReceiveAd(Ad ad) {
-		// TODO Auto-generated method stub
-		Log.i("slot_machine", "Received ad activity");
-		if (ad == interstitialAd) {				
-			interstitialAd.show();
-			
-		}
-	}
-	@Override
-	public void onVungleAdEnd() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void onVungleAdStart() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void onVungleView(double watchedSeconds, double totalAdSeconds) {
-		// TODO Auto-generated method stub
-		final double watchedPercent = watchedSeconds/totalAdSeconds;
-		if(watchedPercent >=1f){
-			Resouces.allCoin += 250;
-			Resouces.saveSetting();
-		}		
-	}
-	
 	/**
 	 * Review
 	 */
