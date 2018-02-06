@@ -72,24 +72,24 @@ public class GameScreen extends Activity implements AdListener, EventListener{
 	    
     }
 	public void getAdmob(){
-		LinearLayout.LayoutParams adParams = new LinearLayout.LayoutParams(getWindowManager().getDefaultDisplay().getWidth() + getWindowManager().getDefaultDisplay().getWidth() - (int) Resouces._getX(640), getWindowManager().getDefaultDisplay().getHeight()
-                + getWindowManager().getDefaultDisplay().getHeight()
-                - getWindowManager().getDefaultDisplay().getHeight() * 2 - 120);
-
-	    AdView adView = new AdView(GameScreen.this, AdSize.BANNER, getResources().getString(R.string.admob_id));
-	    AdRequest adRequest = new AdRequest();
-		adView.loadAd(adRequest);    	    
-	    CCDirector.sharedDirector().getActivity().addContentView(adView, adParams);
+//		LinearLayout.LayoutParams adParams = new LinearLayout.LayoutParams(getWindowManager().getDefaultDisplay().getWidth() + getWindowManager().getDefaultDisplay().getWidth() - (int) Resouces._getX(640), getWindowManager().getDefaultDisplay().getHeight()
+//                + getWindowManager().getDefaultDisplay().getHeight()
+//                - getWindowManager().getDefaultDisplay().getHeight() * 2 - 120);
+//
+//	    AdView adView = new AdView(GameScreen.this, AdSize.BANNER, getResources().getString(R.string.admob_id));
+//	    AdRequest adRequest = new AdRequest();
+//		adView.loadAd(adRequest);
+//	    CCDirector.sharedDirector().getActivity().addContentView(adView, adParams);
 	}
 	public void getInterstitialAd(){       	
-		interstitialAd = new InterstitialAd(this, getResources().getString(R.string.admob_id));
-        interstitialAd.setAdListener(this);
-        AdRequest adRequest = new AdRequest();
-        interstitialAd.loadAd(adRequest);	  
+//		interstitialAd = new InterstitialAd(this, getResources().getString(R.string.admob_id));
+//        interstitialAd.setAdListener(this);
+//        AdRequest adRequest = new AdRequest();
+//        interstitialAd.loadAd(adRequest);
 	}
     public void getVungleAd(){
-    	VunglePub.init(this, getResources().getString(R.string.vungle_id));
-    	VunglePub.setEventListener(this);
+//    	VunglePub.init(this, getResources().getString(R.string.vungle_id));
+//    	VunglePub.setEventListener(this);
     }
     
     //@Override 
@@ -254,27 +254,27 @@ public class GameScreen extends Activity implements AdListener, EventListener{
      * Set Review Dialog
      */
     public void showReviewDialog() {
-    	String message = "Do you Like this app? Get FREE 200 coins by giving us 5 STARS review or SHARE this app to your friends!";
-		
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message)
-            .setPositiveButton("Give Review!", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                	Resouces.allCoin += 200;
-                	Resouces.saveSetting();
-                    EntityActions.giveUsReview(GameScreen.this);
-                }
-            })
-            .setNegativeButton("Share with Friends!", new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					Resouces.allCoin += 200;
-					Resouces.saveSetting();
-					EntityActions.shareApp(GameScreen.this);
-				}
-            });
-        builder.create().show();
+//    	String message = "Do you Like this app? Get FREE 200 coins by giving us 5 STARS review or SHARE this app to your friends!";
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setMessage(message)
+//            .setPositiveButton("Give Review!", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                	Resouces.allCoin += 200;
+//                	Resouces.saveSetting();
+//                    EntityActions.giveUsReview(GameScreen.this);
+//                }
+//            })
+//            .setNegativeButton("Share with Friends!", new DialogInterface.OnClickListener() {
+//				@Override
+//				public void onClick(DialogInterface dialog, int which) {
+//					Resouces.allCoin += 200;
+//					Resouces.saveSetting();
+//					EntityActions.shareApp(GameScreen.this);
+//				}
+//            });
+//        builder.create().show();
     }	
 	
 }
