@@ -67,15 +67,15 @@ public class CoinBuy extends CCLayer {
 
 //		admobInterstitial();
 		
-		Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(Resouces.g_Context.getResources().getString(R.string.more_apps_hammyliem)));
-		Resouces.g_Context.startActivity(i);
-
-		long currentTime = System.currentTimeMillis();
-		if ((currentTime - lastTime) > 15 * 60 * 1000) {
-			Resouces.allCoin += 1000;
-			Resouces.saveSetting();
-			lastTime = currentTime;
-		}
+//		Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(Resouces.g_Context.getResources().getString(R.string.more_apps_hammyliem)));
+//		Resouces.g_Context.startActivity(i);
+//
+//		long currentTime = System.currentTimeMillis();
+//		if ((currentTime - lastTime) > 15 * 60 * 1000) {
+//			Resouces.allCoin += 1000;
+//			Resouces.saveSetting();
+//			lastTime = currentTime;
+//		}
 
 	}
 	

@@ -54,9 +54,7 @@
         <activity
             android:name="tott.eshep.slot.PrepareScreen"
             android:screenOrientation="portrait" />
-        <activity
-            android:name="com.google.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
