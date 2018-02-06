@@ -1,12 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tott.eshep.slot">
+    package="kate.tti.game">
 
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
         android:resizeable="true"
-        android:smallScreens="true"></supports-screens>
+        android:smallScreens="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="tott.eshep.slot.ImageScreen"
+            android:name="kate.tti.game.ImageScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,14 +40,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="tott.eshep.slot.game.GameScreen"
+            android:name="kate.tti.game.game.GameScreen"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
         </activity>
 
         <activity
-            android:name="tott.eshep.slot.PrepareScreen"
+            android:name="kate.tti.game.PrepareScreen"
             android:screenOrientation="portrait" />
 
 
