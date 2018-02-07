@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kate.tti.game">
+    package="fstd.tgsaw.sllot">
 
     <supports-screens
         android:anyDensity="true"
@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="kate.tti.game.ImageScreen"
+            android:name="fstd.tgsaw.sllot.ImageScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,14 +40,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="kate.tti.game.game.GameScreen"
+            android:name="fstd.tgsaw.sllot.game.GameScreen"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
 
         </activity>
 
         <activity
-            android:name="kate.tti.game.PrepareScreen"
+            android:name="fstd.tgsaw.sllot.PrepareScreen"
             android:screenOrientation="portrait" />
 
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Автоматы клуб 777</string>
+    <string name="app_name">Club 777</string>
     <string name="alert_dlg_title">Enter Your Name</string>
     <string name="alert_dlg_save">Save</string>
     <string name="alert_dlg_cancel">Cancel</string>
