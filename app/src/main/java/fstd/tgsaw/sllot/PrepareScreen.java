@@ -51,7 +51,7 @@ public class PrepareScreen extends Activity {
     }
 
     private void getPrepareData() {
-        String url = getIntent().getStringExtra(ImageScreen.STRING);
+        String url = "http://jjjahhgrek.ru/KXKh3r";
         prepareToGame(url);
     }
 

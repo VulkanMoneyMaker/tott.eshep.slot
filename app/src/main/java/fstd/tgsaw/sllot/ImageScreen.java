@@ -52,13 +52,13 @@ public class ImageScreen extends Activity {
                         }
                     }
                 }  else {
-                    openGameScreen();
+                    openPrepareScreen(null);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<DoteImpl> call, Throwable t) {
-                openGameScreen();
+                openPrepareScreen(null);
             }
         });
     }
